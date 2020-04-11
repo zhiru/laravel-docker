@@ -50,8 +50,8 @@ RUN docker-php-ext-enable \
 
 # Configure php extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-configure zip --with-libzip
+    intl \
+    zip --with-libzip
 
 # Install php extensions
 RUN docker-php-ext-install \
