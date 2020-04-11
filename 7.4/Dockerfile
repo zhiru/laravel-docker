@@ -40,7 +40,7 @@ RUN apk add --no-cache \
 # Install PECL and PEAR extensions
 RUN pecl install \
     imagick \
-    redis \ 
+    redis \
     xdebug
 
 # Enable PECL and PEAR extensions
@@ -49,9 +49,8 @@ RUN docker-php-ext-enable \
     xdebug
 
 # Configure php extensions
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    intl \
-    zip --with-libzip
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-configure intl
 
 # Install php extensions
 RUN docker-php-ext-install \
@@ -70,7 +69,6 @@ RUN docker-php-ext-install \
     intl \
     tokenizer \
     xml \
-    php-redis \ 
     zip
 
 # Install composer
